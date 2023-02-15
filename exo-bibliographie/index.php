@@ -15,7 +15,7 @@
     <p> <b>Consignes : </b><br>
     Vous êtes chargé(e) de créer un projet orienté objet permettant de gérer des livres et leurs auteurs respectifs.
     </p>
-    <h2>Affichage :</h2>
+    <h2>Affichage :</h2><br>
 
     <?php
     //importe mes classe
@@ -24,9 +24,10 @@
     });
 
     
+    //Je crée mes auteur
+    $auteur1 = new Auteur("Charles", "Dickens");
+    echo $auteur1;
 
-
-    
 
     ?>
 
