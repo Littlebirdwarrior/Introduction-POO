@@ -12,7 +12,7 @@
             $this ->_soldeInit = $soldeInit;
             $this ->_devise = $devise;
             $this ->_titulaire = $titulaire;
-            $this ->_titulaire->addCompte($this);
+            $this ->_titulaire->addCompte($this);//ici, mes titulaire sont dans un tableau resultat de addCompte
         }
 
         //**Setter / Getter */
@@ -61,7 +61,7 @@
 
         //Je paramètre mes floats (pas plus loin que les centimes)
         public function getSoldeInitFloat() {
-            $soldeInitFloat = round($this->getSoldeInit(), 3);
+            $soldeInitFloat = round($this->_soldeInit, 3);
             return $soldeInitFloat;
         }
 
@@ -70,9 +70,33 @@
         //Mon toString
         public function __toString()
         {
-            return $this->getLibelle(). " " .$this->getSoldeInitFloat(). " " .$this->getDevise(). " " .$this->getTitulaire();
+            return $this->_libelle. " " .$this->_soldeInit. " " .$this->_devise. " " .$this->_titulaire;
         }
+
+        //Créditer le compte de X euros
+
+        public function credit(float $credit){
+            $this->_soldeInit += $credit;
+            echo "Le compte a été créditer de ". $credit . "euros<br>";
+            // $this->_soldeInit = $this->_soldeInit + $credit;
+        }
+
+        //Débiter le compte de X euros
+        public function debit(float $debit){
+            $this->_soldeInit -= $debit;
+            echo "Le compte a été créditer de ". $debit . "euros<br>";
+            // $this->_soldeInit = $this->_soldeInit + $credit;
+        }
+            
+        //Effectuer un virement d'un compte à l'autre.
+        public function transfert(Compte $origine, Compte $destination, float $transfert){
+            $origine -> debit($transfert);
+            $destination -> credit($transfert);
+            echo "La somme de ".$transfert." a été transféter de ". $origine ." à ". $destination . "euros<br>";
+        }
+
 
     };
 
+    
 ?>

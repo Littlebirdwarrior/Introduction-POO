@@ -89,8 +89,26 @@ class Titulaire {
         $this->_comptes[] = $compte;//ici, j'ajoute les comptes créé dans mon tableau vide
     }
     
+    
+    //Affichage
+    //J'affiche les infos des titulaires pour les mettre dans mes infos sur les comptes
+    public function __toString()
+    {
+        return $this->getPrenom()." ".$this->getNom() ;
+    }
+
+    //J'affiche les infos du titulaire
+
+    public function displayTitulaire() {
+        $result = "<b>Mes titulaires</b><br>";
+        $titulaires = $this->getPrenom()." ".$this->getNom(). " ". $this->dateNaissanceString() . " " . $this -> getVille(). "<br>";
+        $result .= $titulaires;
+        return $result;
+    }
+
+    //J'affiche le compte de chaque titulaire
     //convertir mon array en string 
-    public function getComptesString(){
+    public function displayComptesString(){
         $result = "<b>Comptes de $this</b><br>"; //le $this renvois au name de l'objet de classe Titulaire traité
         $comptes = $this->getComptes();//ici, le $this renvois à l'arrey du titulaire traité
         foreach ($comptes as $compte){
@@ -99,12 +117,7 @@ class Titulaire {
         return $result;
     }
 
-    //Mon toString
-    //J'affiche les infos des titulaires pour les mettre dans mes infos sur les comptes
-    public function __toString()
-    {
-        return $this->getPrenom()." ".$this->getNom() ;
-    }
+    
 }
 
 

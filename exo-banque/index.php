@@ -7,12 +7,6 @@
     <title>Introduction POO - Exo - Banque - Exo 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .grey {
-            background: #ddd;
-            width: 500px;
-            margin: 10px;
-            padding: 10px;
-        }
     </style>
 </head>
 
@@ -37,11 +31,37 @@
 
 
     //Je crée mes comptes
-    $compte1 = new Compte("livret A", 42.666, "£", $titulaire1);
-    $compte2 = new Compte("livret Epargne", 1500.666, "£", $titulaire1);
+    $compte1 = new Compte("Livret A", 42.666, "euros", $titulaire1);
+    $compte2 = new Compte("Livret Epargne", 1500.666, "euros", $titulaire1);
+    $compte3 = new Compte("Livret B", 2108.14 ,"euros", $titulaire2);
 
-    echo $titulaire1->getComptesString();
+    //J'affiches mes titulaires et ses comptes (ici, il faut faire une fonction)
+    echo "<div>";
+    echo $titulaire1->displayTitulaire();
+    echo $titulaire1->displayComptesString();
+    echo "</div>";
 
+    echo "<hr>";
+
+    echo "<div>";
+    echo $titulaire2->displayTitulaire();
+    echo $titulaire2->displayComptesString();
+    echo "</div>";
+
+    echo "<hr><b>Credit</b><br>";
+
+    echo $compte1->Credit(3);
+    echo $compte1;
+
+    echo "<hr><b>Debit</b><br>";
+
+    echo $compte2->Credit(4);
+    echo $compte2;
+
+    echo "<hr><b>Transfert</b><br>";
+
+
+    
 
     ?>
 
