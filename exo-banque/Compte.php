@@ -77,25 +77,26 @@
 
         public function credit(float $credit){
             $this->_soldeInit += $credit;
-            echo "Le compte a été créditer de ". $credit . "euros<br>";
+            echo "Le compte ". $this ->_libelle." de ". $this ->_titulaire ." a été débité de ". $credit . " euros<br>
+                Son solde est de ". $this -> _soldeInit. " euros<br>";
             // $this->_soldeInit = $this->_soldeInit + $credit;
         }
 
         //Débiter le compte de X euros
         public function debit(float $debit){
             $this->_soldeInit -= $debit;
-            echo "Le compte a été créditer de ". $debit . "euros<br>";
+            echo "Le compte ". $this ->_libelle." de ". $this ->_titulaire ." a été débité de ". $debit . " euros<br>
+                Son solde est de ". $this -> _soldeInit. " euros<br>";
             // $this->_soldeInit = $this->_soldeInit + $credit;
         }
             
         //Effectuer un virement d'un compte à l'autre.
-        public function transfert(Compte $origine, Compte $destination, float $transfert){
-            $origine -> debit($transfert);
+        public function transfert(Compte $destination, float $transfert){
+            $this -> debit($transfert);
             $destination -> credit($transfert);
-            echo "La somme de ".$transfert." a été transféter de ". $origine ." à ". $destination . "euros<br>";
+            echo "La somme de ".$transfert." euros a été transférée du ".$this ->_libelle." de ". $this ->_titulaire ." à ". $destination ->_libelle. " de " . $destination->_titulaire ." <br>";
+            
         }
-
-
     };
 
     

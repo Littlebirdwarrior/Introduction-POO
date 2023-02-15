@@ -50,15 +50,14 @@
 
     echo "<hr><b>Credit</b><br>";
 
-    echo $compte1->Credit(3);
-    echo $compte1;
+    echo $compte1->credit(3);
 
     echo "<hr><b>Debit</b><br>";
 
-    echo $compte2->Credit(4);
-    echo $compte2;
+    echo $compte2->debit(4);
 
     echo "<hr><b>Transfert</b><br>";
+    echo $compte1->transfert($compte3, 5);
 
 
     
