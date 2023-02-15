@@ -28,6 +28,12 @@
     $auteur1 = new Auteur("Charles", "Dickens");
     echo $auteur1;
 
+    echo '<br>';
+
+    $livre1 = new Livre("Oliver Twist", 358, 1885, 7, $auteur1);
+
+    echo $livre1;
+
 
     ?>
 
