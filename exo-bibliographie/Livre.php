@@ -24,7 +24,7 @@ class Livre {
         return $this->_titre;
     }
 
-    public function setTitre(){
+    public function setTitre( string $titre){
         $this->_titre = $titre;
     }
     //nbPage
@@ -33,7 +33,7 @@ class Livre {
         return $this->_nbPage;
     }
 
-    public function setNbPage(){
+    public function setNbPage( int $nbPage){
         $this->_nbPage= $nbPage;
     }
 
@@ -43,7 +43,7 @@ class Livre {
         return $this->_titre;
     }
 
-    public function setAnneeParution(){
+    public function setAnneeParution( DateTime $anneeParution){
         $this->_anneeParution = $anneeParution;
     }
 
@@ -52,7 +52,7 @@ class Livre {
         return $this->_prix;
     }
 
-    public function setPrix(){
+    public function setPrix( float $prix){
         $this->_prix = $prix;
     }
 
@@ -61,7 +61,7 @@ class Livre {
         return $this->_auteur;
     }
 
-    public function setAuteur(){
+    public function setAuteur( Auteur $auteur){
         $this->_auteur = $auteur;
     }
 
@@ -75,17 +75,14 @@ class Livre {
 
     //Je paramètre mes floats (pas plus loin que les centimes)
     public function getPrixFloat() {
-    $prixFloat = round($this->_prix, 3);
-    return $prixFloat;
+        $prixFloat = round($this->_prix, 3);
+        return $prixFloat;
     }
 
     public function __toString(){
         return $this->_titre ." (". $this->anneeParutionString().") : ". $this->_nbPage ." pages / ". $this->_prix." euros";
 
     }
-
-
-   
 
 }
 

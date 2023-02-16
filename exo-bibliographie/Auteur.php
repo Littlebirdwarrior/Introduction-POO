@@ -33,7 +33,7 @@ class Auteur {
         return $this ->_prenom;
     }
 
-    public function setPrenom(){
+    public function setPrenom(string $prenom){
         $this ->_prenom = $prenom;
     }
 
