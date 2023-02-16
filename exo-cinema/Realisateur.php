@@ -9,7 +9,7 @@ class Realisateur {
     private string $_nom;
     private string $_prenom;
     private string $_sexe;
-    private DateTime $_dateNaissanceRealisateur;
+    private DateTime $_dateNaissance;
 }
 
 
