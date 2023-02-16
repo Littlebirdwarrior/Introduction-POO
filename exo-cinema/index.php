@@ -22,16 +22,47 @@
     spl_autoload_register(function ($class_name) {
         require $class_name . '.php';
     });
-
+    
+    //Je crée mes objets
+    
+    //Mes genres
     $drame = new Genre("drame");
+    $horreur = new Genre("horreur");
+    $comedie = new Genre("comedie");
+    $action = new Genre("action");
+    $historique = new Genre("historique");
+    
 
-    $realisateur1 = new Realisateur("Punk", "Punkman", "Homme", "1968-10-4");
+    $realisateur1 = new Realisateur("Fincher", "David", "Homme", "1962-09-28");
+    $realisateur2 = new Realisateur ("Martinson","Leslie Herbert","Homme","1915-01-16");
+    $realisateur3 = new Realisateur ("Nolan","Christopher","Homme", "1970-06-30");
+    $realisateur4 = new Realisateur ("George", "Thomas", "Homme", "1972-10-05");
 
-    $film1 = new Film("Fight Club", "1990-02-14", $realisateur1, 2.5, "Ceci est un résumé de Fight Club, c'est interessant", $drame);
 
-    echo $film1;
-    var_dump($film1)
+    //film1 et film4, meme acteur + femme
+    //film2 et film3, meme role
+    //film1 et film5, meme realisateur
 
+    $film1 = new Film("Fight Club", "1999", $realisateur1, 2.5, "Ceci est un résumé de Fight Club, c'est interessant", $drame);
+    //Acteur:Helena Bonham Carter //Role: Marla
+
+    $film2 = new Film("Batman", "1966", $realisateur2 , 2.2 , "c'est le 1er Batman et Robin", $comedie);
+    //Acteur: Adam West //Role: Batman
+
+    $film3 = new Film("The Dark Night", "2008", $realisateur3 , 2.7 , "c'est le celebre Batman SANS Robin", $action);
+    //Acteur: Christian Bale //Role: Batman
+
+    $film4 = new Film("The King's Speech","2010", $realisateur4, 1.5 , "C'est l'histoire de George V d'Angleterre", $historique );
+    //Acteur:Helena Bonham Carter //Role: Elizabeth Bowes-Lyon
+
+    $film5 = new Film("Alien 3","1992", $realisateur1, 2.1, "C'est un film affreux", $horreur);
+    //Acteur: Sigourney Weaver //Role: Ellen Ripley
+
+    //**Affichage */
+
+    echo "<h2>Mes films</h2>";
+
+    echo $film1 . $film2 . $film3  .$film4 . $film5;
     
 
     ?>

@@ -74,17 +74,25 @@ class Film {
 
     //**Méthode */
 
-    //Convertir dateSortie en date
+    //Convertir dateSortie en année
     public function dateSortie(){
         $date = $this->_dateSortie;
-        $dateSortie = $date->format('Y-m-d');
+        $dateSortie = $date->format('Y');
         return $dateSortie;
+    }
+
+    //Convertir la duree du format int en durée
+
+    public function getDureeTime(){
+        $timestamp = strtotime('1970-01-01') + $this ->getDuree(); // Conversion en timestamp Unix
+        $date = date('H:i:s', $timestamp); // Formatage de la date
+        return $date
     }
 
 
     //Affichage
     public function __toString(){
-       return $this ->getTitre() . " <br> " . $this-> DateSortie() . "<br> " . $this -> getDuree() . " <br>". $this -> getGenre() . " <br>" . $this->getResume();
+       return "<b>" . $this ->getTitre() . "</b> <br> " . $this-> DateSortie() . "<br> " . $this -> getDureeTime() . " <br>". $this -> getGenre() . " <br>" . $this->getResume() . "<hr>";
     }
 
 }
