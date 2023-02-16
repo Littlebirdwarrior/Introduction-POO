@@ -23,6 +23,14 @@
         require $class_name . '.php';
     });
 
+    $drame = new Genre("drame");
+
+    $realisateur1 = new Realisateur("Punk", "Punkman", "Homme", "1968-10-4");
+
+    $film1 = new Film("Fight Club", "1990-02-14", $realisateur1, 2.5, "Ceci est un résumé de Fight Club, c'est interessant", $drame);
+
+    echo $film1;
+    var_dump($film1)
 
     
 

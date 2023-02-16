@@ -7,14 +7,14 @@
 
 class Genre {
     private string $_genre;
-    private array $_film = [];
+    private array $_films = [];
 
     public function __construct(string $genre) {
         $this->_genre = $genre;
         $this->_films = [];
     }
-}
-//**Setter / Getter */
+
+    //**Setter / Getter */
 
     public function getGenre(){
         return $this->_genre;
@@ -24,20 +24,25 @@ class Genre {
     }
 
 
-//** Methode*/
-//Ajouter des films à mon tableau (cf class livre)
+    //** Methode*/
+    //Ajouter des films à mon tableau (cf class livre)
 
     public function addFilm(Film $film) {
-    $this->_films[] = $film;
+        $this->_films[] = $film;
     }
 
     public function filmsParGenres(){
-        $films = $this->_films
-        foreach ($film as $film){
-            $result = $film;
+        $films = $this->_films;
+        foreach ($films as $film){
+            $result = $film .'<br>';
         }
-        return $result
+        return $result;
+    }
+
+    public function __toString(){
+        return $this->_genre;
     }
 
 
+}
 ?>

@@ -11,15 +11,16 @@ class Film {
     private int $_duree;//à convertir en DateTime
     private Realisateur $_realisateur;
     private string $_resume;
-    private string $_genre;
+    private Genre $_genre;
 
-    public function __construct( string $titre, string $dateSortie, int $duree, string $resume, string $genre){
+    public function __construct( string $titre, string $dateSortie, Realisateur $realisateur, int $duree, string $resume, Genre $genre){
         $this->_titre = $titre;
         $this->_dateSortie = new DateTime($dateSortie);
         $this->_duree = $duree;
+        $this->_realisateur = $realisateur;
         $this->_resume = $resume;
         $this->_genre = $genre;
-        $this->_genre = addFilm($this)//cf class genre
+        $this-> _genre -> addFilm($this);//cf class genre
         
     }
 
@@ -67,7 +68,7 @@ class Film {
         return $this -> _genre;
     }
 
-    public function setGenre( string $genre){
+    public function setGenre( Genre $genre){
         $this -> _genre = $genre;
     }
 
