@@ -10,7 +10,7 @@ class Titulaire {
 
     //**Construct */
 
-    public function __construct (string $nom, string $prenom, string $dateNaissance, string $ville) {//, array $comptes
+    public function __construct (string $nom, string $prenom, string $dateNaissance, string $ville) {
         $this -> _nom = $nom;
         $this -> _prenom = $prenom;
         $this -> _dateNaissance = new DateTime($dateNaissance);
@@ -86,7 +86,7 @@ class Titulaire {
     //Ajouter un comptes
     
     public function addCompte (Compte $compte) {
-        $this->_comptes[] = $compte;//ici, j'ajoute les comptes créé dans mon tableau vide
+        $this->_comptes[] = $compte;//ici, j'ajoute les comptes créé dans mon tableau vide, on lie les 2 classe
     }
     
     
@@ -116,6 +116,8 @@ class Titulaire {
         }
         return $result;
     }
+
+    
 
     
 }

@@ -15,6 +15,7 @@ class Livre {
         $this->_anneeParution = new DateTime($anneeParution);
         $this->_prix = $prix;
         $this->_auteur = $auteur;
+        $this->_auteur -> addLivre($this);//ici, mes livre sont dans un tableau resultat de addLivre() dans la classe Livre
     }
 
     //**Setter et Getter */
@@ -79,12 +80,12 @@ class Livre {
     }
 
     public function __toString(){
-        return $this->_titre .", ". $this->_nbPage ." pages, ed: ". $this->anneeParutionString().", ". $this->_prix." euros, Auteur : ".$this->_auteur;
+        return $this->_titre ." (". $this->anneeParutionString().") : ". $this->_nbPage ." pages / ". $this->_prix." euros";
 
     }
 
 
-
+   
 
 }
 

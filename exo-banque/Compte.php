@@ -12,7 +12,7 @@
             $this ->_soldeInit = $soldeInit;
             $this ->_devise = $devise;
             $this ->_titulaire = $titulaire;
-            $this ->_titulaire->addCompte($this);//ici, mes titulaire sont dans un tableau resultat de addCompte
+            $this ->_titulaire->addCompte($this);//ici, mes titulaire sont dans un tableau resultat de addCompte() dans la classe Titulaire
         }
 
         //**Setter / Getter */

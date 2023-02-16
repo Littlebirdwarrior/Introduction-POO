@@ -31,8 +31,10 @@
     echo '<br>';
 
     $livre1 = new Livre("Oliver Twist", 358, 1885, 7, $auteur1);
+    $livre2 = new Livre("Strange Chistmas of Mister Scooge", 152, 1882, 12, $auteur1);
+    
 
-    echo $livre1;
+    echo $auteur1->afficherBibliographie();
 
 
     ?>
