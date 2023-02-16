@@ -15,19 +15,75 @@ class Film {
 
     public function __construct( string $titre, string $dateSortie, int $duree, string $resume, string $genre){
         $this->_titre = $titre;
-        $this->_dateSortie = $dateSortie;
+        $this->_dateSortie = new DateTime($dateSortie);
         $this->_duree = $duree;
         $this->_resume = $resume;
         $this->_genre = $genre;
+        $this->_genre = addFilm($this)//cf class genre
         
     }
+
+    //**Setter et Getter */
+    //Titre
 
     public function getTitre(){
         return $this->_titre;
     }
 
-    public function setTitre(){
+    public function setTitre(string $titre){
         $this->_titre = $titre;
+    }
+
+    //date
+    public function getDateSortie(){
+        return $this->_dateSortie;
+    }
+
+    public function setDateSortie( DateTime $dateSortie){
+        $this->_dateSortie = $dateSortie;
+    }
+
+    //duree
+    public function getDuree(){
+        return $this ->_duree;
+
+    }
+
+    public function setDuree(string $duree) {
+        $this->_duree = $duree;
+    }
+
+    //resume
+    public function getResume(){
+        return $this -> _resume;
+    }
+
+    public function setResume(string $resume){
+        $this->_resume = $resume;
+    }
+
+    //genre
+    public function getGenre(){
+        return $this -> _genre;
+    }
+
+    public function setGenre( string $genre){
+        $this -> _genre = $genre;
+    }
+
+    //**Méthode */
+
+    //Convertir dateSortie en date
+    public function dateSortie(){
+        $date = $this->_dateSortie;
+        $dateSortie = $date->format('Y-m-d');
+        return $dateSortie;
+    }
+
+
+    //Affichage
+    public function __toString(){
+       return $this ->getTitre() . " <br> " . $this-> DateSortie() . "<br> " . $this -> getDuree() . " <br>". $this -> getGenre() . " <br>" . $this->getResume();
     }
 
 }
