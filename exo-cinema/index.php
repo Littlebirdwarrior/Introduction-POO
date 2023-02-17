@@ -60,7 +60,7 @@
     $film5 = new Film("Alien","1979", $realisateur5, 68 , "C'est la suide d' autre un film affreusement chouette", $horreur);
     //Acteur: Sigourney Weaver //Role: Ellen Ripley
 
-    $film6 = new Film("Alien-3","1992", $realisateur4, 95 , "C'est un film affreusement chouette", $horreur);
+    $film6 = new Film("Alien-3","1992", $realisateur1, 95 , "C'est un film affreusement chouette", $horreur);
     //Acteur: Sigourney Weaver //Role: Ellen Ripley
 
 
@@ -82,7 +82,7 @@
 
     afficherTousFilms($afficherFilms);
 
-    var_dump($film4);
+     echo $realisateur1 -> afficherFilmReal();
 
     
 

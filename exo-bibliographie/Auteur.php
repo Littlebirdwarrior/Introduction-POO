@@ -64,7 +64,7 @@ class Auteur {
 
     }
 
-    //J'affiche le compte de chaque titulaire
+    //J'affiche les livres contenue dans la bibliographie de chaque auteurs
     //convertir mon array en string 
     public function afficherBibliographie(){
         $result = "<h2> Bibliographie de " . $this ."</h2>";

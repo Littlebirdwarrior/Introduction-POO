@@ -21,6 +21,7 @@ class Film {
         $this->_resume = $resume;
         $this->_genre = $genre;
         $this-> _genre -> addFilm($this);//cf class genre
+        $this-> _realisateur -> addFilm($this);//cf class realisateur
         
     }
 
@@ -63,6 +64,17 @@ class Film {
         $this->_resume = $resume;
     }
 
+    //Realisateur
+
+    //genre
+    public function getRealisateur(){
+        return $this -> _realisateur;
+    }
+    
+    public function setRealisateur( Realisateur $realisateur){
+        $this -> _realisateur = $realisateur;
+    }
+
     //genre
     public function getGenre(){
         return $this -> _genre;
@@ -98,6 +110,7 @@ class Film {
                 <br> " . $this-> DateSortie() . 
                 "<br> " . $this -> getDureeTime() . 
                 " <br> Genre : ". $this -> getGenre() . 
+                " <br> Réalisateur : ". $this -> getRealisateur(). 
                 " <br> Synopsys : " . $this->getResume() . ".<hr>";
     }
 

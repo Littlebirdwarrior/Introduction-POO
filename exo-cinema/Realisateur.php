@@ -5,72 +5,55 @@
 //Un résumé du film (synopsis)  pourra  éventuellement être  renseigné.  
 //Chaque  film  est  caractérisé  par  un  seul  genre cinématographique (science-fiction, aventure, action, ...).
 
-class Realisateur {
-    private string $_nom;
-    private string $_prenom;
-    private string $_sexe;
-    private DateTime $_dateNaissance;
+     class Realisateur extends Personne {
 
-    //**Construct */
+        private array $_films;
 
-    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance) {
-        $this -> _nom = $nom;
-        $this -> _prenom = $prenom;
-        $this ->_sexe = $sexe;
-        $this -> _dateNaissance = new DateTime($dateNaissance);
-    }
+        //recupère les variables du parent "Personne"
+        
+        public function __construct(string $nom, string $prenom, string $sexe, string $naissance) {
+            parent::__construct($nom, $prenom, $sexe, $naissance);
+            $this-> _films = [];
+        }
 
-    //** Setter Getter */
+        //J'ajoute des méthodes propre à Realisateur
+        
 
-    //Nom
-    public function getNom(){
-        return $this ->_nom;
+        //les setter et getter
 
-    }
+        public function getFilms(){
+            return $this->_films;
+        }
 
-    public function setNom(string $nom){
-        $this->_nom = $nom;
-    }
+        public function setFilms(array $films){
+            $this -> _films = $films;
+        }
 
-     //Prenom
-    public function getPrenom(){
-        return $this ->_prenom;
-    
-    }
-    
-    public function setPrenom(string $prenom){
-        $this->_prenom = $prenom;
-    }
+        //to string -> juste le nom et prenom
 
-    //Sexe
+        public function __toString(){
+            return $this->getPrenom() . " " .$this->getNom();
+        }
 
-    public function getSexe(){
-        return $this -> _sexe;
-    }
+        
 
-    public function setSexe(string $sexe){
-        $this->_sexe = $sexe;
-    }
+        //J'ajoute des films a mes acteurs
 
-    //dateNaissance
+        public function addFilm (Film $films) {
+            $this->_films[] = $films;//ici, j'ajoute les livres dans mon tableau vide
 
-    public function getDateNaissance(){
-        return $this ->_dateNaissance;
-    }
+        }
 
-    public function setDateNaissance( DateTime $dateNaissance){
-        $this->_dateNaissance -> $dateNaissance;
-    }
-
-    //*Modele*/
-
-    public function __toString()
-    {
-        return $this->_nom . $this->_prenom . $this->_sexe . $this->_dateNaissance;
-    }
-
-
-}
-
+        //J'affiche les films de chaque acteurs
+        public function afficherFilmReal(){
+            $result ="<h2> Filmograhie de " . $this->getPrenom(). " " .$this->getNom() ."</h2>";
+            $films = $this->_films;
+            foreach ($films as $film){
+                $result .= $film ."<br>";
+            }
+            return $result;
+        }
+     }
 
 ?>
+
