@@ -7,15 +7,15 @@
 
 class Film {
     private string $_titre;
-    private DateTime $_dateSortie;
+    private int $_dateSortie;
     private int $_duree;//à convertir en DateTime
     private Realisateur $_realisateur;
     private string $_resume;
     private Genre $_genre;
 
-    public function __construct( string $titre, string $dateSortie, Realisateur $realisateur, int $duree, string $resume, Genre $genre){
+    public function __construct( string $titre, int $dateSortie, Realisateur $realisateur, int $duree, string $resume, Genre $genre){
         $this->_titre = $titre;
-        $this->_dateSortie = new DateTime($dateSortie);
+        $this->_dateSortie = $dateSortie;
         $this->_duree = $duree;
         $this->_realisateur = $realisateur;
         $this->_resume = $resume;
@@ -40,7 +40,7 @@ class Film {
         return $this->_dateSortie;
     }
 
-    public function setDateSortie( DateTime $dateSortie){
+    public function setDateSortie( int $dateSortie){
         $this->_dateSortie = $dateSortie;
     }
 
@@ -50,7 +50,7 @@ class Film {
 
     }
 
-    public function setDuree(string $duree) {
+    public function setDuree(int $duree) {
         $this->_duree = $duree;
     }
 
@@ -76,8 +76,9 @@ class Film {
 
     //Convertir dateSortie en année
     public function dateSortie(){
-        $date = $this->_dateSortie;
-        $dateSortie = $date->format('Y');
+        $getDate = $this->getDateSortie(); //je récupère ma date au format in
+        $dateTimeStamp = mktime(0, 0, 0, 1, 1, $getDate);//je la convertir en Timestamp Unix, la fonction a besoin des arguments suivants "mktime($heure, $minute, $seconde, $mois, $jour, $annee, $est_dst)"
+        $dateSortie = date('Y', $dateTimeStamp);//je formate ma date en année
         return "Année de sortie : ".$dateSortie;
     }
 

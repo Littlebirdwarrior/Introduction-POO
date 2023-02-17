@@ -37,11 +37,13 @@
     $realisateur2 = new Realisateur ("Martinson","Leslie Herbert","Homme","1915-01-16");
     $realisateur3 = new Realisateur ("Nolan","Christopher","Homme", "1970-06-30");
     $realisateur4 = new Realisateur ("George", "Thomas", "Homme", "1972-10-05");
+    $realisateur5 = new Realisateur ("Scott", "Ridley", "Homme", "1937-11-30");
 
 
     //film1 et film4, meme acteur + femme
     //film2 et film3, meme role
     //film1 et film5, meme realisateur
+    //film5 et film6, meme genre, meme acteur, meme role
 
     $film1 = new Film("Fight Club", "1999", $realisateur1, 125 , "Ceci est un résumé de Fight Club, c'est interessant", $drame);
     //Acteur:Helena Bonham Carter //Role: Marla
@@ -52,18 +54,20 @@
     $film3 = new Film("The Dark Night", "2008", $realisateur3 , 106 , "c'est le celebre Batman SANS Robin", $action);
     //Acteur: Christian Bale //Role: Batman
 
-    $film4 = new Film("The King's Speech","2010", $realisateur4, 95 , "C'est l'histoire de George V d'Angleterre", $historique );
+    $film4 = new Film("The King's Speech", "2010", $realisateur4, 95 , "C'est l'histoire de George V d'Angleterre", $historique );
     //Acteur:Helena Bonham Carter //Role: Elizabeth Bowes-Lyon
 
-    $film5 = new Film("Alien 3","1992", $realisateur1, 165 , "C'est un film affreux", $horreur);
+    $film5 = new Film("Alien","1979", $realisateur5, 168 , "C'est la suide d' autre un film affreusement chouette", $horreur);
     //Acteur: Sigourney Weaver //Role: Ellen Ripley
+
+    $film6 = new Film("Alien-3","1992", $realisateur4, 165 , "C'est un film affreusement chouette", $horreur);
+    //Acteur: Sigourney Weaver //Role: Ellen Ripley
+
 
     //**Methode d'affichage */
 
     //Variables
-    $afficherFilms = [
-        $film1, $film2, $film3, $film4, $film5
-    ];
+    $afficherFilms = [ $film1, $film2, $film3, $film4, $film5, $film6 ];
 
     //functions
     function afficherTousFilms($afficherFilms) {
@@ -77,6 +81,8 @@
     echo '<h3> Tous mes films</h3>';
 
     afficherTousFilms($afficherFilms);
+
+    var_dump($film4);
 
     
 
