@@ -58,11 +58,26 @@
     $film5 = new Film("Alien 3","1992", $realisateur1, 165 , "C'est un film affreux", $horreur);
     //Acteur: Sigourney Weaver //Role: Ellen Ripley
 
+    //**Methode d'affichage */
+
+    //Variables
+    $afficherFilms = [
+        $film1, $film2, $film3, $film4, $film5
+    ];
+
+    //functions
+    function afficherTousFilms($afficherFilms) {
+        foreach ($afficherFilms as $afficherFilm) {
+            echo '<div>'. $afficherFilm. '</div>' ;
+        }
+    }
+
     //**Affichage */
 
-    echo "<h2>Mes films</h2>";
+    echo '<h3> Tous mes films</h3>';
 
-    echo $film1 . $film2 . $film3  .$film4 . $film5;
+    afficherTousFilms($afficherFilms);
+
     
 
     ?>
