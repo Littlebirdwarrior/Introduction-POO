@@ -78,7 +78,7 @@ class Film {
     public function dateSortie(){
         $getDate = $this->getDateSortie(); //je récupère ma date au format in
         $dateTimeStamp = mktime(0, 0, 0, 1, 1, $getDate);//je la convertir en Timestamp Unix, la fonction a besoin des arguments suivants "mktime($heure, $minute, $seconde, $mois, $jour, $annee, $est_dst)"
-        $dateSortie = date('Y', $dateTimeStamp);//je formate ma date en année
+        $dateSortie = date('Y', $dateTimeStamp);//je crée ma date et la formate ma date en année
         return "Année de sortie : ".$dateSortie;
     }
 
@@ -86,8 +86,8 @@ class Film {
 
     public function getDureeTime(){
         $getDate = $this ->getDuree();//je recupere ma durée en minutes
-        $convertSecond = $getDate *60;//je convertis mes minutes en seconde (le calcul des durée ce fait à partir des timestamp unix (en seconde))
-        $date = date('H:i', $convertSecond); // Formatage de la date
+        $convertSecond = $getDate *60;//je convertis mes minutes en seconde (le calcul des dates et durées se fait à partir des timestamp unix (en seconde))
+        $date = date('H:i', $convertSecond); // Creation et formatage de la date
         return "Durée : ". $date;
     }
 
