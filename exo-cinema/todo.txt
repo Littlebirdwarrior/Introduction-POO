@@ -1,0 +1,15 @@
+TO DO
+
+17-02-2023 : aprem
+
+Classe
+- Creer la classe personne, modifier Realisateur (extends classe Personne), meme chose pour classe acteur
+- Creer la classe Casting, qui contient role, film, realisateur
+- Creer la classe Role (tableau casting qui renvois acteur et role)
+- Creer la classe Acteur (tableau role qui renvois acteur et film)
+Fonctions
+- afficher les films par genre
+- afficher le casting par films
+- afficher les acteurs par roles
+- afficher les films par acteurs
+- afficher les films par realisateur
