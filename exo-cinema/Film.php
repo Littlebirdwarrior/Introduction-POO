@@ -78,21 +78,26 @@ class Film {
     public function dateSortie(){
         $date = $this->_dateSortie;
         $dateSortie = $date->format('Y');
-        return $dateSortie;
+        return "Année de sortie : ".$dateSortie;
     }
 
     //Convertir la duree du format int en durée
 
     public function getDureeTime(){
-        $timestamp = strtotime('1970-01-01') + $this ->getDuree(); // Conversion en timestamp Unix
-        $date = date('H:i:s', $timestamp); // Formatage de la date
-        return $date
+        $getDate = $this ->getDuree();//je recupere ma durée en minutes
+        $convertSecond = $getDate *60;//je convertis mes minutes en seconde (le calcul des durée ce fait à partir des timestamp unix (en seconde))
+        $date = date('H:i', $convertSecond); // Formatage de la date
+        return "Durée : ". $date;
     }
 
 
     //Affichage
     public function __toString(){
-       return "<b>" . $this ->getTitre() . "</b> <br> " . $this-> DateSortie() . "<br> " . $this -> getDureeTime() . " <br>". $this -> getGenre() . " <br>" . $this->getResume() . "<hr>";
+       return   "<b>" . $this ->getTitre() . "</b> 
+                <br> " . $this-> DateSortie() . 
+                "<br> " . $this -> getDureeTime() . 
+                " <br> Genre : ". $this -> getGenre() . 
+                " <br> Synopsys : " . $this->getResume() . ".<hr>";
     }
 
 }

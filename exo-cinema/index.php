@@ -43,19 +43,19 @@
     //film2 et film3, meme role
     //film1 et film5, meme realisateur
 
-    $film1 = new Film("Fight Club", "1999", $realisateur1, 2.5, "Ceci est un résumé de Fight Club, c'est interessant", $drame);
+    $film1 = new Film("Fight Club", "1999", $realisateur1, 125 , "Ceci est un résumé de Fight Club, c'est interessant", $drame);
     //Acteur:Helena Bonham Carter //Role: Marla
 
-    $film2 = new Film("Batman", "1966", $realisateur2 , 2.2 , "c'est le 1er Batman et Robin", $comedie);
+    $film2 = new Film("Batman", "1966", $realisateur2 , 86 , "c'est le 1er Batman et Robin", $comedie);
     //Acteur: Adam West //Role: Batman
 
-    $film3 = new Film("The Dark Night", "2008", $realisateur3 , 2.7 , "c'est le celebre Batman SANS Robin", $action);
+    $film3 = new Film("The Dark Night", "2008", $realisateur3 , 106 , "c'est le celebre Batman SANS Robin", $action);
     //Acteur: Christian Bale //Role: Batman
 
-    $film4 = new Film("The King's Speech","2010", $realisateur4, 1.5 , "C'est l'histoire de George V d'Angleterre", $historique );
+    $film4 = new Film("The King's Speech","2010", $realisateur4, 95 , "C'est l'histoire de George V d'Angleterre", $historique );
     //Acteur:Helena Bonham Carter //Role: Elizabeth Bowes-Lyon
 
-    $film5 = new Film("Alien 3","1992", $realisateur1, 2.1, "C'est un film affreux", $horreur);
+    $film5 = new Film("Alien 3","1992", $realisateur1, 165 , "C'est un film affreux", $horreur);
     //Acteur: Sigourney Weaver //Role: Ellen Ripley
 
     //**Affichage */
