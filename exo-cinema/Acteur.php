@@ -11,7 +11,6 @@
         }
 
         //J'ajoute des méthodes propre à Acteur
-        
 
         //les setter et getter
 
@@ -25,9 +24,9 @@
 
         //to string -> juste le nom et prenom
 
-        public function __toString(){
-            return $this->getPrenom() . " " .$this->getNom();
-        }
+        // public function __toString(){
+        //     return $this->getPrenom() . " " .$this->getNom();
+        // }
 
         
 

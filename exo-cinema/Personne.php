@@ -74,7 +74,7 @@ class Personne {
 
     public function __toString()
     {
-        return $this->_nom . $this->_prenom . $this->_sexe . $this->dateNaissanceString();
+        return $this->_nom . " ". $this->_prenom . " / ".$this->_sexe . " / " .$this->dateNaissanceString();
     }
 
 
