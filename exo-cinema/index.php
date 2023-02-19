@@ -121,6 +121,7 @@
     echo $acteur1 ->afficherFimographie();
 
     //Lister la liste des acteurs ayant incarné un rôle précis
+    echo '<h2> Acteurs par roles</h2>';
 
 
     ?>

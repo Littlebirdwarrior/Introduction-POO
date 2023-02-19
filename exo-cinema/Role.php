@@ -51,6 +51,7 @@ class Role {
 
     }
 
+
     //*Methode*/
 
     public function addCasting($castings)
@@ -58,6 +59,7 @@ class Role {
        return $this->_castings[] = $castings;
 
     }
+
 
 }
 

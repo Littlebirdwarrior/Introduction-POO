@@ -116,9 +116,6 @@ class Titulaire {
         }
         return $result;
     }
-
-    
-
     
 }
 
