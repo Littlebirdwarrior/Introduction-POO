@@ -8,40 +8,46 @@ class Casting {
 
     private Acteur $_acteur;
     private Film $_film;
+    private Role $_nomRole;
 
-    //private Role $_Role;
-
-    public function __construct(Acteur $acteur, Film $film, ) { //Role $role
+    public function __construct(Acteur $acteur, Film $film, Role $nomRole) {
         $this -> _acteur = $acteur;
         $this -> _film = $film;
-        $this ->_role = $role;
+        $this ->_nomRole = $nomRole;
+        $this->_film->addCasting($this);
+        $this->_nomRole->addCasting($this);
+        $this->_acteur->addCasting($this);
 
     }
 
     //** Setter et Getter */
-
+    //acteur
     public function getActeur(){
         return $this ->_acteur;
     }
-
+    //film
     public function getFilm(){
         return $this ->_film;
     }
+    //role
+    public function getNomRole(): string
+    {
+        return $this->_nomRole;
+    }
 
-    public function setFilm(Film $film){
-        $this ->_film = $film;
+    public function afficherFilm()
+    {
+        return "<b>" . $this->getFilm()->getTitre() . "</b>";
     }
 
 
     //** Méthodes */
 
-    //Affichage
+    //Affichage du Casting
 
     public function __toString(){
-        return $this->_acteur ." ". $this->_film; // . " ". $this -> _role
+        return $this->getActeur() ." joue ". $this ->getNomRole(). " dans " .$this->afficherFilm(). "<br> ";
     }
   
 }
-
-
 ?>

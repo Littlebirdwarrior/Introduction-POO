@@ -20,7 +20,7 @@ class Genre
 
     // Genre
 
-    public function getGenre()
+    public function getGenre(): string
     {
         return $this->_genre;
     }
@@ -37,7 +37,7 @@ class Genre
 
     // Film
 
-    public function getFilms()
+    public function getFilms(): array
     {
         return $this->_films;
     }
@@ -49,19 +49,20 @@ class Genre
 
 
 
-    //** Methode*/
-    //Ajouter des films à mon tableau (cf class livre)
+    //**------------ Methode*/
+    //Ajouter des films à mon tableau
 
     public function addFilm(Film $film)
     {
         $this->_films[] = $film;
     }
 
+
+    //Afficher les film par genre
     public function filmsParGenres()
-    {
-        $films = $this->_films;
+    {   $films = $this->getFilms();
         foreach ($films as $film) {
-            echo $film;
+            echo "<b> Films de genre ". $this->getGenre()."</b><br>". $film . "<br>";
         }
     }
 

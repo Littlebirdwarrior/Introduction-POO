@@ -10,36 +10,49 @@
             $this-> _castings = [];
         }
 
-        //J'ajoute des méthodes propre à Acteur
 
-        //les setter et getter
+        //------les setter et getter
+        // Propre à la classe
 
+        //acteur
+         public function getActeur(){
+             return $this->_acteur;
+         }
+
+         public function setActeur( Acteur $acteur): Acteur
+         {
+             return $this->_acteur = $acteur;
+         }
+
+        //Nécessaire au construct
+         //casting
         public function getCasting(){
             return $this->_castings;
         }
 
-        public function setFilms(array $films){
+        //les films
+         public function setFilms(array $films){
             $this -> _castings = $films;
         }
 
-        //to string -> juste le nom et prenom
 
-        // public function __toString(){
-        //     return $this->getPrenom() . " " .$this->getNom();
-        // }
+        //**************J'ajoute des méthodes propre à Acteur
 
-        
+         public function __toString()
+         {
+              return $this ->getPrenom(). ' '. $this ->getNom();
+         }
 
-        //J'ajoute des films a mes acteurs
+         //J'ajoute des films a mes acteurs
 
         public function addCasting (Casting $casting) {
-            $this->_castings[] = $casting;//ici, j'ajoute les livres dans mon tableau vide
+            $this->_castings[] = $casting;//ici, j'ajoute les casting dans mon tableau vide
 
         }
 
         //J'affiche les films de chaque acteurs
-        public function afficherCastingActeur(){
-            $result ="<h2> Casting de " . $this->getPrenom(). " " .$this->getNom() ."</h2>";
+        public function afficherFimographie(){
+            $result ="<h3> Filmographie de " . $this->getPrenom(). " " .$this->getNom() ."</h3>";
             $castings = $this->_castings;
             foreach ($castings as $casting){
                 $result .= $casting."<br>";

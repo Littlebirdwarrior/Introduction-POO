@@ -100,6 +100,9 @@ class Film
         $this->_genre = $genre;
     }
 
+    //role
+
+
     //**Méthode */
 
     //Convertir dateSortie en année
@@ -130,13 +133,13 @@ class Film
 
     public function afficherCasting()
     {
-        $result = "<h3> Casting </h3>";
+        $result = "<b> Casting de " . $this->getTitre(). "</b><br>";
         if (count($this->_castings) == 0) {
             // message pas de casting
             $result .= "Pas de casting pour ce film !";
         } else {
             foreach ($this->_castings as $casting) {
-                $result .= $casting->get_role() . " est joué par " . $casting->get_acteur() . "<br>";
+                $result .= $casting->getNomRole() . " est joué par " . $casting->getActeur() . "<br>";
             }
         }
         return $result;
@@ -146,13 +149,14 @@ class Film
     //Affichage
     public function __toString()
     {
-        return "<b>" . $this->getTitre() . "</b> 
+        return "<b>" . $this->getTitre() . "</b>
                 <br> " . $this->DateSortie() .
             "<br> " . $this->getDureeTime() .
             " <br> Genre : " . $this->getGenre() .
             " <br> Réalisateur : " . $this->getRealisateur() .
-            " <br> Synopsys : " . $this->getResume() . ".<hr>";
+            " <br> Synopsys : " . $this->getResume() . ".<br>";
     }
+
 
 }
 

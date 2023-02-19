@@ -15,26 +15,50 @@ class Role {
         $this -> _castings = [];
     }
 
-    //**Setter et Getter */
-
-    //Role
-
-    public function getNomRole(){
-        return $this ->_nomRole;
-    }
-
-    public function setNomRole(Role $role){
-        $this ->_nomRole = $role;
-    }
-
-    //toString
+    // To string
 
     public function __toString()
+    {
+        return $this->getNomRole();
+    }
+
+    // GETTER & SETTERS
+
+    // Role
+
+    public function getNomRole(): string
     {
         return $this->_nomRole;
     }
 
-}
 
+    public function setNomRole($nomRole)
+    {
+        return $this->_nomRole = $nomRole;
+
+    }
+
+    // Casting
+    public function getCastings()
+    {
+        return $this->_castings;
+    }
+
+
+    public function setCastings($castings)
+    {
+       return $this->_castings = $castings;
+
+    }
+
+    //*Methode*/
+
+    public function addCasting($castings)
+    {
+       return $this->_castings[] = $castings;
+
+    }
+
+}
 
 ?>

@@ -45,6 +45,13 @@
     $acteur3 = new Acteur ("Bale","Christian","Homme", "1974-01-30");
     $acteur4 = new Acteur ("Weaver", "Sigourney ", "Homme", "1949-10-08");
 
+    //Mes role
+    $role1= new Role("Batman");
+    $role2 = new Role ("Sigourney Weaver");
+    $role3 = new Role ("Elizabeth Bowes-Lyon");
+    $role4 = new Role ("Marla");
+
+
     //Mes films
 
     $film1 = new Film("Fight Club", "1999", $realisateur1, 125 , "Ceci est un résumé de Fight Club, c'est interessant", $drame);
@@ -65,6 +72,15 @@
     $film6 = new Film("Alien-3","1992", $realisateur1, 95 , "C'est un film affreusement chouette", $horreur);
     //Acteur: Sigourney Weaver //Role: Ellen Ripley
 
+    //Casting
+
+    $casting1 = new Casting ($acteur2, $film2, $role1);
+    $casting2 = new Casting ($acteur3, $film3, $role1);
+    $casting4 = new Casting ($acteur1, $film1, $role4);
+    $casting3 = new Casting ($acteur1, $film4, $role3);
+    $casting5 = new Casting ($acteur4, $film5, $role2);
+    $casting6 = new Casting ($acteur4, $film6, $role2);
+
     //Mes resultat de test
     //film1 et film4, meme acteur + femme
     //film2 et film3, meme role
@@ -80,25 +96,32 @@
     //functions
     function afficherTousFilms($afficherFilms) {
         foreach ($afficherFilms as $afficherFilm) {
-            echo '<div>'. $afficherFilm. '</div>' ;
+            echo '<div>'. $afficherFilm. '<hr></div>' ;
         }
     }
 
     //**Affichage */
 
-    echo '<h3> Tous mes films</h3>';
-
+    echo '<h2> Tous mes films</h2>';
     afficherTousFilms($afficherFilms);
-
-    
+    //Lister la filmographie d'un réalisateur
+    echo '<h2> Les films par réalisateurs</h2>';
     echo $realisateur1 -> afficherFilmReal();
-    
-    echo '<h3> Les acteurs </h3>';
-    echo $acteur1;
 
-    echo '<h3> Les films par genres</h3>';
+    //Lister les films par genre
+    echo '<h2> Les films par genres</h2>';
     echo $horreur -> filmsParGenres();
-    
+
+    //Lister le casting d'un film
+    echo '<h2> Casting par films</h2>';
+    echo $film1-> afficherCasting();
+
+    //Lister la filmographie d'un acteur
+    echo '<h2> Films par acteurs</h2>';
+    echo $acteur1 ->afficherFimographie();
+
+    //Lister la liste des acteurs ayant incarné un rôle précis
+
 
     ?>
 
