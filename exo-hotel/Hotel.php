@@ -18,10 +18,59 @@ class Hotel
     }
 
 
-// METHODE
+    // METHODE
+
+    public function afficherInfo()
+    {
+        echo "<h3>" .$this->_nom. "</h3>" ;
+        echo $this->_adresse."<br><br>";
+
+    }
 
 
-//SETTER GETTER
+    //SETTER GETTER
+
+    // Name
+
+    public function getNom()
+    {
+        return $this->_nom;
+    }
+
+
+    public function setNom($_nom)
+    {
+        return $this->_nom = $_nom;
+
+    }
+
+    // Adresse
+
+    public function getAdresse()
+    {
+        return $this->_adresse;
+    }
+
+
+    public function setAdresse($adresse)
+    {
+        return $this->_adresse = $adresse;
+
+    }
+
+    // Chambres
+
+    public function getChambres()
+    {
+        return $this->_chambres;
+    }
+
+
+    public function setChambres($chambres)
+    {
+        return $this->_chambres = $chambres;
+
+    }
 
 
 }
