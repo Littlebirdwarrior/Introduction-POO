@@ -9,7 +9,7 @@ class Chambre
     private Hotel $_hotel;
     private array $_reservations;
 
-    public function __construct(int $numero, int $prix, string $wifi, $lit, Hotel $hotel)
+    public function __construct(int $numero, float $prix, string $wifi, $lit, Hotel $hotel)
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
@@ -21,8 +21,54 @@ class Chambre
 
     // METHODE
 
+    public function __toString(){
+        return $this->_numero. " " .$this->_prix. " " .$this->_wifi. " " .$this->_lit;
+    }
+
 
     //SETTER GETTER
+
+    //numero
+    public function getNumero() {
+        return $this -> _numero;
+    }
+
+    public function setNumero( int $numero){
+        $this -> _numero = $numero;
+    }
+
+    //prix 
+
+    public function getPrix() {
+        return $this -> _prix;
+    }
+
+    public function setPrix( float $prix){
+        $this -> _prix = $prix;
+    }
+
+    //wifi
+
+    public function getWifi() {
+        return $this -> _wifi;
+    }
+
+    public function setWifi( int $wifi){
+        $this -> _wifi = $wifi;
+    }
+
+    //lit
+
+    public function getLit() {
+        return $this -> _lit;
+    }
+
+    public function setLit( int $lit){
+        $this -> _lit = $lit;
+    }
+
+
+
 
 }
 ?>
