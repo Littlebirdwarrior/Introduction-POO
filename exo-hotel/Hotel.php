@@ -20,6 +20,13 @@ class Hotel
 
     // METHODE
 
+    //toString
+    public function __toString(){
+        return $this->_nom . $this->_adresse;
+    }
+
+
+    //Afficher Info
     public function afficherInfo()
     {
         echo "<h3>" .$this->_nom. "</h3>" ;
@@ -58,18 +65,22 @@ class Hotel
 
     }
 
-    // Chambres
+    //Reservations
+    public function getReservations(){
+        return $this->_reservations;
+    }
 
-    public function getChambres()
-    {
+    public function setReservations(array $reservations){
+        $this->_reservations = $reservations;
+    }
+
+    //Chambre
+    public function getChambres(){
         return $this->_chambres;
     }
 
-
-    public function setChambres($chambres)
-    {
-        return $this->_chambres = $chambres;
-
+    public function setChambres(array $chambres){
+        $this->_chambres = $chambres;
     }
 
 

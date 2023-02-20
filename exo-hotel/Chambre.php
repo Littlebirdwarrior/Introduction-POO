@@ -20,7 +20,7 @@ class Chambre
     }
 
     // METHODE
-
+    //Affichage
     public function __toString(){
         return $this->_numero. " " .$this->_prix. " " .$this->_wifi. " " .$this->_lit;
     }
@@ -65,6 +65,15 @@ class Chambre
 
     public function setLit( int $lit){
         $this -> _lit = $lit;
+    }
+
+    //Reservations
+    public function getReservations(){
+        return $this->_reservations;
+    }
+    
+    public function setReservations(array $reservations){
+        $this->_reservations = $reservations;
     }
 
 

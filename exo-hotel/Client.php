@@ -14,8 +14,40 @@ class Client
 
 // METHODE
 
+public function __toString()
+{
+    return $this -> _prenom. " ". $this->_nom." " ;
+}
+
 
 //SETTER GETTER
+
+//Prenom
+public function getPrenom(){
+    return $this->_prenom;
+}
+
+public function setPrenom(string $prenom){
+    $this->_prenom = $prenom;
+}
+
+//Prenom
+public function getNom(){
+    return $this->_nom;
+}
+
+public function setNom(string $nom){
+    $this->_nom = $nom;
+}
+
+//Reservations
+public function getReservations(){
+    return $this->_reservations;
+}
+
+public function setReservations(array $reservations){
+    $this->_reservations = $reservations;
+}
 
 }
 
