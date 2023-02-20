@@ -11,14 +11,14 @@ class Hotel
     private array $_reservations;
 
 
-    public function __construct(string $nom, string $adresse, string $codePostal, string $ville)//array $chambres, array $reservations
+    public function __construct(string $nom, string $adresse, string $codePostal, string $ville)// les array pas dans le construct
     {
         $this->_nom = $nom;
         $this->_adresse = $adresse;
         $this->_codePostal = $codePostal;
         $this->_ville = $ville;
         $this->_chambres = [];/////
-        //$this->_reservations = [];////
+        $this->_reservations = [];////
     }
 
 
@@ -64,16 +64,16 @@ class Hotel
     }
     
 
-    // //Reservations
-    // public function getReservations()
-    // {
-    //     return $this->_reservations;
-    // }
+    //Reservations
+    public function getReservations()
+    {
+        return $this->_reservations;
+    }
 
-    // public function setReservations(array $reservations) ////
-    // {
-    //     $this->_reservations = $reservations;
-    // }
+    public function setReservations(array $reservations) ////
+    {
+        $this->_reservations = $reservations;
+    }
 
 
     //Chambre
@@ -93,7 +93,26 @@ class Hotel
     }
 
 
-    // METHODE
+    //** METHODE Perso*/ 
+
+    //Afficher les reservations d'Hotel par clients
+
+    public function AfficherReservationParClient(){
+        $result = '<h3> Réservation de'.$this->getNom(). '</h3>';
+        foreach($this-> getReservations() as $reservation){
+            return $affichage = $reservation->getClient()->getPrenom(). " " .$reservation->getClient()->getNom(). " ". $reservation->getChambres();
+        }
+        $result .= $affichage ."<br>";
+    }
+
+
+
+    //-Information hotel-/
+    //calculer le nombre de chambres de l'hotel
+
+
+    //calculer le nombre de chambre réservée et le nombre de chambre de disponibles
+
 
     //Afficher Informations des Hotel
     
@@ -103,7 +122,9 @@ class Hotel
         echo $this->_adresse."<br><br>";
     }
 
-    //Afficher Informations des chambres
+    //-Information statut-/ 
+
+    //** METHODE Fonctionnement*/ 
 
     //Ajouter les reservations au tableau
     public function addReservation(Reservation $reservation )
@@ -112,13 +133,11 @@ class Hotel
     }
     
 
-    //toString
+    //**toString/
     public function __toString()
     {
         return $this->_nom . $this->_adresse;
     }
-
-
 
 }
 

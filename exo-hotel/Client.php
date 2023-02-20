@@ -33,7 +33,9 @@ class Client
         $this->_nom = $nom;
     }
     
-    // METHODE
+    
+    
+    //** METHODE construction*/ 
 
     //Ajouter les reservations au tableau
     public function addReservation(Reservation $reservation )

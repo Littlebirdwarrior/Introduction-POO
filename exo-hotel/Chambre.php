@@ -9,6 +9,7 @@ class Chambre
     private Hotel $_hotel;
     private array $_reservations;
     private bool $_free;
+    private bool $_status;
 
     public function __construct(int $numero, float $prix, bool $wifi, int $lit, Hotel $hotel)//Hotel $hotel, array $reservations
     {
@@ -19,6 +20,7 @@ class Chambre
         $this->_hotel = $hotel;
         $hotel->addChambre($this);// cette méthode ajoute les chambres aux hotel
         $this->_reservations = [];//ici on récupére un tableau de reservations
+        $this ->_status = true;
     }
 
     // METHODE
