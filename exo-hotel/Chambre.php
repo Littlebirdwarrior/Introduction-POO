@@ -10,13 +10,13 @@ class Chambre
     private array $_reservations;
     private bool $_free;
 
-    public function __construct(int $numero, float $prix, bool $wifi, string $lit, bool $free )//Hotel $hotel, array $reservations
+    public function __construct(int $numero, float $prix, bool $wifi, string $lit, bool $free, Hotel $hotel)//Hotel $hotel, array $reservations
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
         $this->_wifi = $wifi;
         $this->_lit = $lit;
-        // $this->_hotel = addChambre($this);
+        $this->_hotel = addChambre($this);
         // $this->_reservations = [];
         $this->_free = $free;
     }
@@ -26,7 +26,11 @@ class Chambre
     public function __toString(){
         return $this->_numero. " " .$this->_prix. " " .$this->_wifi. " " .$this->_lit;
     }
-
+     
+    //Chaque chambre se trouve dans un hotel, on les ajoute au array
+    public function addChambre(Chambre $chambre){
+        $this->_chambres = $chambre;
+    }
 
     //SETTER GETTER
 
@@ -79,5 +83,7 @@ class Chambre
     {
         $this -> _free = $free;
     }
+
+}
     
 ?>

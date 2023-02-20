@@ -11,7 +11,7 @@ class Hotel
     private array $_reservations;
 
 
-    public function __construct(string $nom, string $adresse, string $codePostal, string $ville, array $chambres, array $reservations)
+    public function __construct(string $nom, string $adresse, string $codePostal, string $ville )//array $chambres, array $reservations
     {
         $this->_nom = $nom;
         $this->_adresse = $adresse;
