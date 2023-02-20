@@ -41,13 +41,11 @@ public function setNom(string $nom){
 }
 
 //Reservations
-public function getReservations(){
-    return $this->_reservations;
+public function addBooking(Reservation $reservation )
+{
+    $this->_reservations[] = $reservation;
 }
 
-public function setReservations(array $reservations){
-    $this->_reservations = $reservations;
-}
 
 }
 

@@ -19,10 +19,13 @@ spl_autoload_register(function ($class_name) {
 
 // Hotels
 
-$hotel_stras = new Hotel("Hilton **** Strasbourg", "10 route de la gare, 67100 Strasbourg");
-$hotel_paris = new Hotel("Regent **** Paris", "61 Rue Dauphine, 75010 Paris");
+$hotel_stras = new Hotel("Hilton **** Strasbourg", "10 route de la gare" , "67100", "Strasbourg");
+$hotel_paris = new Hotel("Regent **** Paris", "61 Rue Dauphine", "75010", "Paris");
+
+var_dump($hotel_paris);
 
 // Chambres
+
 
 
 

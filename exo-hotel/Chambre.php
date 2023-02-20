@@ -8,16 +8,17 @@ class Chambre
     private string $_lit;
     private Hotel $_hotel;
     private array $_reservations;
-    //ajout status bool
+    private bool $_free;
 
-    public function __construct(int $numero, float $prix, string $wifi, $lit, Hotel $hotel)
+    public function __construct(int $numero, float $prix, bool $wifi, string $lit, bool $free )//Hotel $hotel, array $reservations
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
         $this->_wifi = $wifi;
         $this->_lit = $lit;
-        $this->_reservations = [];
-        $this->_hotel = $hotel;
+        // $this->_hotel = addChambre($this);
+        // $this->_reservations = [];
+        $this->_free = $free;
     }
 
     // METHODE
@@ -68,25 +69,15 @@ class Chambre
         $this -> _lit = $lit;
     }
 
-    //Reservations
-    public function getReservations(){
-        return $this->_reservations;
-    }
-    
-    public function setReservations(array $reservations){
-        $this->_reservations = $reservations;
+    //free
+
+    public function getFree() {
+        return  $this -> _free;
     }
 
-        //Hotel
-
-    public function getHotel() {
-        return $this -> _lit;
+    public function setFree( bool $free)
+    {
+        $this -> _free = $free;
     }
     
-    public function setHotel( Hotel $hotel){
-        $this -> _hotel = $hotel;
-    }
-    
-
-}
 ?>
