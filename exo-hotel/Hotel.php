@@ -94,33 +94,27 @@ class Hotel
 
 
     //** METHODE Perso*/ 
-
-    //Afficher les reservations d'Hotel par clients
-
-    public function AfficherReservationParClient(){
-        $result = '<h3> Réservation de'.$this->getNom(). '</h3>';
-        foreach($this-> getReservations() as $reservation){
-            return $affichage = $reservation->getClient()->getPrenom(). " " .$reservation->getClient()->getNom(). " ". $reservation->getChambres();
-        }
-        $result .= $affichage ."<br>";
-    }
-
-
-
+        
     //-Information hotel-/
-    //calculer le nombre de chambres de l'hotel
 
-
-    //calculer le nombre de chambre réservée et le nombre de chambre de disponibles
-
-
-    //Afficher Informations des Hotel
-    
-    public function afficherInfoHotel()
-    {
-        echo "<h3>" .$this->_nom. "</h3>" ;
-        echo $this->_adresse."<br><br>";
+    public function AfficherReservation()
+    { 
+        if (count($this->_reservations) == 0)
+        {   
+            echo "<h3> Reservations de ".$this->_nom. "</h3>" ;
+            echo "Cet hotel n'a aucune reservation pour le moment. ";
+        }
+        
+        else
+        {   
+            echo "<h3> Reservations de ".$this->_nom. "</h3>" ;
+            echo "Adresse : ". $this->_adresse. " " .$this->_codePostal . " " .$this->_ville."<br>  
+                Nombre de chambres : " .count ($this->_chambres) ."<br>
+                Nombre de réservations : " .count($this->_reservations) ."<br>
+                Nombre de chambre libre : ". count ($this->_chambres)-count($this->_reservations)."<br>";
+        }
     }
+
 
     //-Information statut-/ 
 

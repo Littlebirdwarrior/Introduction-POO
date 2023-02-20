@@ -8,10 +8,9 @@ class Chambre
     private int $_lit;
     private Hotel $_hotel;
     private array $_reservations;
-    private bool $_free;
     private bool $_status;
 
-    public function __construct(int $numero, float $prix, bool $wifi, int $lit, Hotel $hotel)//Hotel $hotel, array $reservations
+    public function __construct(int $numero, float $prix, bool $wifi, int $lit, Hotel $hotel)
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
@@ -21,21 +20,8 @@ class Chambre
         $hotel->addChambre($this);// cette méthode ajoute les chambres aux hotel
         $this->_reservations = [];//ici on récupére un tableau de reservations
         $this ->_status = true;
-    }
 
-    // METHODE
-    //Affichage
-    public function __toString(){
-        return $this->_numero. " " .$this->_prix. " " .$this->_wifi. " " .$this->_lit. " ". $this->_hotel;
-    }
-
-    //Ajouter les chambes au résenvation
-    //Reservation -> un array d'objet
-    public function addReservation(Reservation $reservation)////
-    {
-       $this->_reservations[] = $reservation;
-    }
-     
+    }     
 
     //SETTER GETTER
 
@@ -78,16 +64,71 @@ class Chambre
         $this -> _lit = $lit;
     }
 
+    //Hotel
+        
+    public function getHotel()
+    {
+        return $this->_hotel;
+    }
+
+    public function setHotel(Hotel $hotel)
+    {
+        return $this->_hotel = $hotel;
+
+     }
+
+    // Reservation
+
+    public function getReservations()
+    {
+        return $this->_reservations;
+    }
+
+    public function seReservations($reservations)
+    {
+        return  $this->_reservations = $reservations;
+    }
+
     //free
 
-    public function getFree() {
-        return  $this -> _free;
+    public function getStatus() {
+        return  $this -> _status;
     }
 
-    public function setFree( bool $free)
+    public function setStatus( bool $status)
     {
-        $this -> _free = $free;
+        $this -> _status = $status;
     }
+
+    //**METHODE perso*/
+
+    //**METHODE Construction*/
+    //Affichage
+    public function __toString(){
+        return " n°: ". $this->_numero. "/ prix : " .$this->_prix. " euros / Wifi : " .$this->afficherWifi(). " /(nombre de lit :" .$this->_lit. ")";
+    }
+
+    //Ajouter les chambes au résenvation
+    //Reservation -> un array d'objet
+    public function addReservation(Reservation $reservation)////
+    {
+       $this->_reservations[] = $reservation;
+    }
+
+    //afficher le wifi
+    public function afficherWifi(){
+    
+        if ($this->getWifi() == True)
+        {
+            return $wifistatus = "Oui";
+                        
+        }
+        else 
+        {
+        return $wifistatus = "Non";
+        } 
+    }
+                
 
 }
     

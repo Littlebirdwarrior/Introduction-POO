@@ -33,7 +33,27 @@ class Client
         $this->_nom = $nom;
     }
     
-    
+    //** METHODE perso/ 
+
+     //Afficher les reservations d'Hotel par clients
+
+     public function AfficherReservationParClient(){  
+
+        echo "<h3> Reservations de ".$this ."</h3> Nombre de réservations : " .count($this->_reservations) ."<br>";
+
+        foreach ($this->_reservations as $reservation)
+        {   
+            if(count($this->_reservations) == 0)
+            {
+                echo "Ce client n'a pas de reservation";
+            }
+            else
+            {
+                echo $reservation->getChambre()->getHotel()->getNom(). " - Chambre  ".$reservation->getChambre(). " - du " .$reservation->getDateDebutString() . " au ".$reservation->getDateFinString()."<br>";
+            }
+        }
+                  
+    }       
     
     //** METHODE construction*/ 
 
