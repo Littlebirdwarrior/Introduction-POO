@@ -5,6 +5,7 @@ class Hotel
 
     private string $_nom;
     private string $_adresse;
+    private string $_cp;
     private array $_chambres;
     private array $_reservations;
 
@@ -13,6 +14,7 @@ class Hotel
     {
         $this->_nom = $nom;
         $this->_adresse = $adresse;
+        $this->_codePostal = $codePostal;
         $this->_chambres = [];
         $this->_reservations = [];
     }
@@ -64,6 +66,17 @@ class Hotel
         return $this->_adresse = $adresse;
 
     }
+
+    //cp
+
+    public function getCodePostal() {
+        return $this -> _codePostal;
+    }
+    
+    public function setCodePostal( string  $codePostal) )
+        $this -> _codePostal = $codePostal;
+    }
+    
 
     //Reservations
     public function getReservations(){

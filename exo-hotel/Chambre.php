@@ -8,6 +8,7 @@ class Chambre
     private string $_lit;
     private Hotel $_hotel;
     private array $_reservations;
+    //ajout status bool
 
     public function __construct(int $numero, float $prix, string $wifi, $lit, Hotel $hotel)
     {
@@ -76,8 +77,16 @@ class Chambre
         $this->_reservations = $reservations;
     }
 
+        //Hotel
 
-
+    public function getHotel() {
+        return $this -> _lit;
+    }
+    
+    public function setHotel( Hotel $hotel){
+        $this -> _hotel = $hotel;
+    }
+    
 
 }
 ?>
