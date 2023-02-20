@@ -6,13 +6,16 @@ class Reservation
     private DateTime $_dateFin;
     private Client $_client;
     private Chambre $_chambre;
+    private Hotel $_hotel;
 
-    public function __construct(string $dateDebut, string $dateFin, Client $client, Chambre $chambre)
+    public function __construct(string $dateDebut, string $dateFin, Client $client, Chambre $chambre, Hotel $hotel )
     {
         $this->_dateDebut = new DateTime ($dateDebut);
         $this->_dateFin = new DateTime($dateFin);
         $this->_client = $client;
         $this->_chambre = $chambre;
+        $this->_hotel = $hotel;
+        $hotel->addBooking($this);
     }
 
 // METHODE

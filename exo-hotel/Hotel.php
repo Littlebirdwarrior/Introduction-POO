@@ -5,12 +5,12 @@ class Hotel
 
     private string $_nom;
     private string $_adresse;
-    private string $_cp;
+    private string $_codePostal;
     private array $_chambres;
     private array $_reservations;
 
 
-    public function __construct(string $nom, string $adresse)
+    public function __construct(string $nom, string $adresse, string $codePostal)
     {
         $this->_nom = $nom;
         $this->_adresse = $adresse;
@@ -33,6 +33,7 @@ class Hotel
     {
         echo "<h3>" .$this->_nom. "</h3>" ;
         echo $this->_adresse."<br><br>";
+
 
     }
 
@@ -69,33 +70,44 @@ class Hotel
 
     //cp
 
-    public function getCodePostal() {
+    public function getCodePostal() 
+    {
         return $this -> _codePostal;
     }
     
-    public function setCodePostal( string  $codePostal) )
+    public function setCodePostal( string  $codePostal)
+    {
         $this -> _codePostal = $codePostal;
     }
     
 
     //Reservations
-    public function getReservations(){
+    public function getReservations()
+    {
         return $this->_reservations;
     }
 
-    public function setReservations(array $reservations){
+    public function setReservations(array $reservations)
+    {
         $this->_reservations = $reservations;
     }
 
+    
     //Chambre
-    public function getChambres(){
+    public function getChambres()
+    {
         return $this->_chambres;
     }
-
-    public function setChambres(array $chambres){
+    
+    public function setChambres(array $chambres)
+    {
         $this->_chambres = $chambres;
     }
+    
+    public function addBooking(Reservation $reservation ){
 
+        $this->_reservations[] = $reservation;
+    }
 
 }
 
