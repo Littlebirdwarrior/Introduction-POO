@@ -5,32 +5,35 @@ class Chambre
     private int $_numero;
     private float $_prix;
     private bool $_wifi;
-    private string $_lit;
+    private int $_lit;
     private Hotel $_hotel;
     private array $_reservations;
     private bool $_free;
 
-    public function __construct(int $numero, float $prix, bool $wifi, string $lit, bool $free, Hotel $hotel)//Hotel $hotel, array $reservations
+    public function __construct(int $numero, float $prix, bool $wifi, int $lit, Hotel $hotel)//Hotel $hotel, array $reservations
     {
         $this->_numero = $numero;
         $this->_prix = $prix;
         $this->_wifi = $wifi;
         $this->_lit = $lit;
-        $this->_hotel = addChambre($this);
-        // $this->_reservations = [];
-        $this->_free = $free;
+        $this->_hotel = $hotel;
+        $hotel->addChambre($this);// cette méthode ajoute les chambres aux hotel
+        $this->_reservations = [];//ici on récupére un tableau de reservations
     }
 
     // METHODE
     //Affichage
     public function __toString(){
-        return $this->_numero. " " .$this->_prix. " " .$this->_wifi. " " .$this->_lit;
+        return $this->_numero. " " .$this->_prix. " " .$this->_wifi. " " .$this->_lit. " ". $this->_hotel;
+    }
+
+    //Ajouter les chambes au résenvation
+    //Reservation -> un array d'objet
+    public function addReservation(Reservation $reservation)////
+    {
+       $this->_reservations[] = $reservation;
     }
      
-    //Chaque chambre se trouve dans un hotel, on les ajoute au array
-    public function addChambre(Chambre $chambre){
-        $this->_chambres = $chambre;
-    }
 
     //SETTER GETTER
 

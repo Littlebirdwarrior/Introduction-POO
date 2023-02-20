@@ -14,7 +14,7 @@ class Reservation
         $this->_dateFin = new DateTime($dateFin);
         $this->_client = $client;
         $this->_chambre = $chambre;
-        $chambre->addBooking($this);
+        $chambre->addReservation($this);//cette reservation s'enregiste dans chambre
     }
 
 // METHODE
@@ -67,16 +67,6 @@ class Reservation
     public function setClient(Client $client){
         $this->_client = $client;
     }
-
-        //Client
-        public function getChambre(){
-            return $this->_chambre;
-        }
-    
-        public function setChambre(Client $chambre){
-            $this->_chambre = $chambre;
-        }
-
 
 }
 
