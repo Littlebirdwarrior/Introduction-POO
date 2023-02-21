@@ -67,9 +67,11 @@ class Client
         foreach($this->_reservations as $reservation) 
         {   
             $coutNuit = $reservation->getChambre()->getPrix();
+            var_dump($coutNuit)."<br>";
             $nbDeNuitInt = (($reservation->getDateDebut())->diff($reservation->getDateFin())->format('%a'));
+            var_dump($nbDeNuitInt)."<br>";
             $coutTotal = $coutNuit * $nbDeNuitInt;
-            echo $coutTotal . "euros";
+            var_dump(floatval($coutTotal)) . "euros";
         }
     }
 
