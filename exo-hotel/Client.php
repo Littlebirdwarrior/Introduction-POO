@@ -63,16 +63,17 @@ class Client
     //calcul du nombre de nuit et du prix
 
     public function prixTotalParClient(){
+        $total = 0;
         echo "<b>Prix total des nuits:</b>";
         foreach($this->_reservations as $reservation) 
         {   
-            $coutNuit = $reservation->getChambre()->getPrix();
-            var_dump($coutNuit)."<br>";
+            $coutChambre = $reservation->getChambre()->getPrix();
             $nbDeNuitInt = (($reservation->getDateDebut())->diff($reservation->getDateFin())->format('%a'));
-            var_dump($nbDeNuitInt)."<br>";
-            $coutTotal = $coutNuit * $nbDeNuitInt;
-            var_dump(floatval($coutTotal)) . "euros";
+            $coutTotalChambre = $coutChambre * $nbDeNuitInt;
+            $total .= floatval($coutTotalChambre);//a chaque tour de boucle je rajoute un total (un total par reservation)
         }
+
+        echo $total; //Total faux ici, ajoute comme des string,
     }
 
     
