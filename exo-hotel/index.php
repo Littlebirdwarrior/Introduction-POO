@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,7 @@
 
 <?php
 
+/**Charge les classes comme un Include, mais les liberer quand à finis de les utiliser */
 spl_autoload_register(function ($class_name) {
     require $class_name . '.php';
 });
@@ -51,7 +52,13 @@ $reservation_2 = new Reservation("14-02-2023", "20-02-2023", $client_1, $chambre
 
 // TESTS
 $hotel_stras->AfficherReservation();
+
+
+$hotel_stras->AfficherReservationParHotel();
+
 $client_1 -> AfficherReservationParClient();
+
+$client_1 -> prixTotalParClient();
 
 
 

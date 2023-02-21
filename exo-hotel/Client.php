@@ -40,6 +40,7 @@ class Client
      public function AfficherReservationParClient(){  
 
         echo "<h3> Reservations de ".$this ."</h3> Nombre de réservations : " .count($this->_reservations) ."<br>";
+        $total = 0;
 
         foreach ($this->_reservations as $reservation)
         {   
@@ -48,12 +49,32 @@ class Client
                 echo "Ce client n'a pas de reservation";
             }
             else
-            {
-                echo $reservation->getChambre()->getHotel()->getNom(). " - Chambre  ".$reservation->getChambre(). " - du " .$reservation->getDateDebutString() . " au ".$reservation->getDateFinString()."<br>";
+            { 
+                //Affichage
+                echo $reservation->getChambre()->getHotel()->getNom(). " - Chambre  ".$reservation->getChambre(). " 
+                - du " .$reservation->getDateDebutString() . " au ".$reservation->getDateFinString()."<br>";
+
             }
+        
         }
                   
-    }       
+    } 
+
+    //calcul du nombre de nuit et du prix
+
+    public function prixTotalParClient(){
+        echo "<b>Prix total des nuits:</b>";
+        foreach($this->_reservations as $reservation) 
+        {   
+            $coutNuit = $reservation->getChambre()->getPrix();
+            $nbDeNuitInt = (($reservation->getDateDebut())->diff($reservation->getDateFin())->format('%a'));
+            $coutTotal = $coutNuit * $nbDeNuitInt;
+            echo $coutTotal . "euros";
+        }
+    }
+
+    
+    //Calculer le prix des reservations par clients
     
     //** METHODE construction*/ 
 

@@ -115,6 +115,27 @@ class Hotel
         }
     }
 
+    public function AfficherReservationParHotel(){  
+
+        echo "<h3> Reservations de ". $this->_nom.//ici, reservations est un array, a convertir en string, sans foreach
+            "</h3> Nombre de réservations : " .count($this->_reservations) ."<br>";
+
+        foreach ($this->_reservations as $reservation)
+        {   
+            if(count($this->_reservations) == 0)
+            {
+                echo "Cet Hotel n'a pas de reservation";
+            }
+            else
+            {
+                echo $reservation->getClient(). " - Chambre  ".$reservation->getChambre(). " - du " .$reservation->getDateDebutString() . " au ".$reservation->getDateFinString()."<br>";
+            }
+        }
+                  
+    }      
+
+
+
 
     //-Information statut-/ 
 
