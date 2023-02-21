@@ -111,7 +111,7 @@ class Hotel
             echo "Adresse : ". $this->_adresse. " " .$this->_codePostal . " " .$this->_ville."<br>  
                 Nombre de chambres : " .count ($this->_chambres) ."<br>
                 Nombre de réservations : " .count($this->_reservations) ."<br>
-                Nombre de chambre libre : ". count ($this->_chambres)-count($this->_reservations)."<br>";
+                Nombre de chambre libre : ". (count ($this->_chambres)-count($this->_reservations))."<br>";
         }
     }
 
