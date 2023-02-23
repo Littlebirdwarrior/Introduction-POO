@@ -133,9 +133,47 @@ class Hotel
         }
                   
     } 
-    
-    
 
+    public function afficherStatutChambres(){
+        $result = "<h3> Status des chambre de <b> ". $this->_nom." </b></h3>
+                <table>
+                 <thead>
+                    <tr>
+                        <th>Chambre</th>
+                        <th>Prix</th>
+                        <th>Wifi</th>
+                        <th>Statut</th>
+                    </tr>
+                 </thead><tbody>";
+        
+        foreach ($this->_chambres as $chambre){
+            //declaration variable
+            $numero = $chambre->getNumero();
+            $prix = $chambre->getPrix();
+            $wifi = $chambre->getWifi();
+            $etat = $chambre->getStatus();
+
+            //if else de l'état de la chambre
+            $etat = ($etat) ? "Reservé" : "Disponible";
+            $wifi = ($wifi) ? "oui" : "non";
+ 
+            //Affichage du tableau
+            $result.= "
+                        <tr>
+                            <td> Chambre ". $numero."</td>
+                            <td>". $prix."</td>
+                            <td>". $wifi."</td>
+                            <td>". $etat."</td>
+                        </tr>";
+        }
+
+        echo $result;
+        echo "  </tbody>
+             </table>";
+
+    }
+    
+    
 
 
 

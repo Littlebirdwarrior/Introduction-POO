@@ -45,6 +45,7 @@ $client_1 = new Client("Dawn", "Johnson");
 
 $reservation_1 = new Reservation("16-02-2023", "17-02-2023", $client_1, $chambre_stras_1);
 $reservation_2 = new Reservation("14-02-2023", "20-02-2023", $client_1, $chambre_stras_2);
+//var_dump($reservation_1);
 
 
 //var_dump($reservation_1)
@@ -60,6 +61,7 @@ $client_1 -> AfficherReservationParClient();
 
 $client_1 -> prixTotalParClient();
 
+$hotel_stras ->afficherStatutChambres();
 
 
 ?>

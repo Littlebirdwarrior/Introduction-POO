@@ -16,6 +16,7 @@ class Reservation
         $this->_chambre = $chambre;
         $chambre->addReservation($this);//cette reservation s'enregiste dans chambre
         $this->_chambre->getHotel()->addReservation($this);
+        $this->_chambre->setStatus(false); //Des qu'une reservation est en cours, le status est set à false
     }
 
 
