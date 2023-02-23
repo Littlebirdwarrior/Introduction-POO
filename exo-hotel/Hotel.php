@@ -117,7 +117,7 @@ class Hotel
 
     public function AfficherReservationParHotel(){  
 
-        echo "<h3> Reservations de ". $this->_nom.//ici, reservations est un array, a convertir en string, sans foreach
+        echo "<h3> Reservations de ". $this->_nom. "euros".//ici, reservations est un array, a convertir en string, sans foreach
             "</h3> Nombre de réservations : " .count($this->_reservations) ."<br>";
 
         foreach ($this->_reservations as $reservation)
@@ -132,7 +132,9 @@ class Hotel
             }
         }
                   
-    }      
+    } 
+    
+    
 
 
 

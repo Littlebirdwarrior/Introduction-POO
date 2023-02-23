@@ -54,7 +54,7 @@ $reservation_2 = new Reservation("14-02-2023", "20-02-2023", $client_1, $chambre
 $hotel_stras->AfficherReservation();
 
 
-$hotel_stras->AfficherReservationParHotel();
+$hotel_paris->AfficherReservationParHotel();
 
 $client_1 -> AfficherReservationParClient();
 

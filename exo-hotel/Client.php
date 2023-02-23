@@ -64,7 +64,7 @@ class Client
 
     public function prixTotalParClient(){
         $total = 0;
-        echo "<b>Prix total des nuits:</b>";
+        echo "<b>Prix total des nuits: </b>";
         foreach($this->_reservations as $reservation) 
         {   
             $coutChambre = $reservation->getChambre()->getPrix();
