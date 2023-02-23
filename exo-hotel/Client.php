@@ -68,9 +68,9 @@ class Client
         foreach($this->_reservations as $reservation) 
         {   
             $coutChambre = $reservation->getChambre()->getPrix();
-            $nbDeNuitInt = (($reservation->getDateDebut())->diff($reservation->getDateFin())->format('%a'));
-            $coutTotalChambre = $coutChambre * $nbDeNuitInt;
-            $total .= floatval($coutTotalChambre);//a chaque tour de boucle je rajoute un total (un total par reservation)
+            $nbDeNuit = $reservation->getDateDebut()->diff($reservation->getDateFin())->d;
+            $coutTotalChambre = $coutChambre * $nbDeNuit;
+            $total += $coutTotalChambre;//a chaque tour de boucle je rajoute un total (un total par reservation)
         }
 
         echo $total; //Total faux ici, ajoute comme des string,
